@@ -45,7 +45,7 @@ namespace AnalyticsSample
             grdLeft.Visibility = Visibility.Visible;
 
             left = true;
-            obj = Analytics.AnalyticsLog.PostSessionStart(1, butLeft.Name, "table");
+            obj = Analytics.AnalyticsLog.PostSessionStart(butLeft.Name, "table");
 
 
             // Register a selection of this item and save a session token 

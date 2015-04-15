@@ -14,10 +14,10 @@ namespace Analytics
     {
         public static string OutputFileName;
 
-        public static LogRecord PostSessionStart(int ID, string Name, string Table)
+        public static LogRecord PostSessionStart(string Name, string Table)
         {
 
-            return new LogRecord(ID, Name, Table);
+            return new LogRecord(Name, Table);
         }
 
         public static int PostSessionEnd(string OutputFileName, LogRecord sessionobj)
@@ -27,10 +27,6 @@ namespace Analytics
                 AnalyticsLog.OutputFileName = "logrecord.csv";
             }
             CsvContext cc = new CsvContext();
-
-
-            int leftsessionid = 1;
-
             CsvFileDescription outputFileDescription = new CsvFileDescription
             {
                 QuoteAllFields = false,
@@ -38,10 +34,8 @@ namespace Analytics
                 FirstLineHasColumnNames = true,
 
             };
-
-
             List<LogRecord> LogRecord = new List<LogRecord>();
-            LogRecord obj = new LogRecord { ID = leftsessionid, Name = sessionobj.Name, BeginTime = sessionobj.BeginTime, EndTime = sessionobj.EndTime};
+            LogRecord obj = new LogRecord { Name = sessionobj.Name, BeginTime = sessionobj.BeginTime, EndTime = sessionobj.EndTime};
             obj.Complete();
             LogRecord.Add(obj);
 

@@ -11,18 +11,14 @@ namespace Analytics
     public class LogRecord
     {
         public LogRecord() { }
-        public LogRecord(int ID, string Name, string Table)
+        public LogRecord(string Name, string Table)
         {
 
-            this.ID = ID;
             this.Name = Name;
             this.Table = Table;
             this.BeginTime = DateTime.Now;
 
         }
-
-        [CsvColumn(Name = "ID", FieldIndex = 1)]
-        public int ID { get; set; }
 
         [CsvColumn(Name = "Name", FieldIndex = 2)]
         public string Name { get; set; }
