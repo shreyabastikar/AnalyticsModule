@@ -7,7 +7,7 @@
     <ProjectGuid>{EF13076E-CC21-41E2-81DB-407EC2CDFFDA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>mcMath</RootNamespace>
+    <RootNamespace>Analytics</RootNamespace>
     <AssemblyName>mcMath</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalyticsLog.cs" />
     <Compile Include="LogRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

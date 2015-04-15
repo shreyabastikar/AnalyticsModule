@@ -49,3 +49,25 @@ C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsS
 C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.g.resources
 C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.Properties.Resources.resources
 C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csproj.GenerateResource.Cache
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.exe.config
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.exe
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.pdb
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.exe
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.pdb
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.dll
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mscorlib.dll
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\LINQtoCSV.dll
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.pdb
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normidna.nlp
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normnfc.nlp
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normnfd.nlp
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normnfkc.nlp
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normnfkd.nlp
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csprojResolveAssemblyReference.cache
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\MainWindow.baml
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\MainWindow.g.cs
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\App.g.cs
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample_MarkupCompile.cache
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.g.resources
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.Properties.Resources.resources
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csproj.GenerateResource.Cache

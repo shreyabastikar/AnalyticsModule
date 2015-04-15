@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using mcMath;
+using Analytics;
 namespace AnalyticsSample
 {
     /// <summary>
@@ -39,17 +39,13 @@ namespace AnalyticsSample
         bool left = false;
         bool right = false;
         LogRecord obj;
-        AnalyticsLog clsobj = new AnalyticsLog();
+        
         private void butLeft_Click(object sender, RoutedEventArgs e)
         {
             grdLeft.Visibility = Visibility.Visible;
 
-            long lRes = clsobj.Add(23, 40);
-            clsobj.Extra = false;
-
-            Console.WriteLine(lRes.ToString());
             left = true;
-            obj = clsobj.PostSessionStart(1, butLeft.Name, "table", DateTime.Now);
+            obj = Analytics.AnalyticsLog.PostSessionStart(1, butLeft.Name, "table");
 
 
             // Register a selection of this item and save a session token 
@@ -85,14 +81,10 @@ namespace AnalyticsSample
         int rightSessionID;
         private void butLeftClose_Click(object sender, RoutedEventArgs e)
         {
-            if (left)
-            {
-                left = false;
-
-
-            }
-            obj.EndTime = DateTime.Now;
-            int ret = clsobj.PostSessionEnd(obj);
+            
+                        
+            //logrecord.csv is the file passed by the host application for logging
+            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv",obj);
             grdLeft.Visibility = Visibility.Hidden;
             Console.WriteLine("***************** {0}", e.Source);
             // Pseudo code:

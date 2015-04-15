@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 using LINQtoCSV;
 
-namespace mcMath
+namespace Analytics
 {
     public class LogRecord
     {
         public LogRecord() { }
-        public LogRecord(int ID, string Name, string Table, DateTime BeginTime)
+        public LogRecord(int ID, string Name, string Table)
         {
 
             this.ID = ID;
             this.Name = Name;
             this.Table = Table;
-            this.BeginTime = BeginTime;
+            this.BeginTime = DateTime.Now;
 
         }
 
@@ -30,85 +30,23 @@ namespace mcMath
         [CsvColumn(Name = "Table", FieldIndex = 3)]
         public string Table { get; set; }
 
-        [CsvColumn(Name = "BeginTime", FieldIndex = 4, OutputFormat = "dd MMM HH:mm:ss")]
+        [CsvColumn(Name = "BeginTime", FieldIndex = 4, OutputFormat = "MM/dd/yyyy HH:mm:ss")]
         public DateTime BeginTime { get; set; }
 
-        [CsvColumn(Name = "EndTime", FieldIndex = 5, OutputFormat = "dd MMM HH:mm:ss")]
+        [CsvColumn(Name = "EndTime", FieldIndex = 5, OutputFormat = "MM/dd/yyyy HH:mm:ss")]
         public DateTime EndTime { get; set; }
 
         [CsvColumn(Name = "Duration", FieldIndex = 6)]
         public int Duration { get; set; }
 
-    }
-
-    public class AnalyticsLog
-    {
-        private bool bTest = false;
-        public AnalyticsLog()
+        public void Complete()
         {
-            // 
-            // TODO: Add constructor logic here 
-            // 
+            this.EndTime = DateTime.Now;
+            TimeSpan ts = this.EndTime - this.BeginTime;
+            this.Duration = (int)ts.TotalSeconds;
+            
+
         }
-        /// <summary> 
-        /// //This is a test method 
-        /// </summary> 
-        public void mcTestMethod()
-        {
-        }
-        /// <summary>
-        /// //This is a test property
-        /// </summary>
-        public bool Extra
-        {
-            get
-            {
-                return bTest;
-            }
-            set
-            {
-                bTest = Extra;
-            }
-        }
-
-        public long Add(long val1, long val2)
-        {
-            return val1 + val2;
-        }
-        public LogRecord PostSessionStart(int ID, string Name, string Table, DateTime BeginTime)
-        {
-
-
-            return new LogRecord(ID, Name, Table, BeginTime);
-        }
-
-        public int PostSessionEnd(LogRecord sessionobj)
-        {
-
-            CsvContext cc = new CsvContext();
-
-
-            int leftsessionid = 1;
-
-            CsvFileDescription outputFileDescription = new CsvFileDescription
-            {
-                QuoteAllFields = false,
-                SeparatorChar = ',', // tab delimited
-                FirstLineHasColumnNames = true,
-
-            };
-
-
-            List<LogRecord> LogRecord = new List<LogRecord>();
-            LogRecord.Add(new LogRecord { ID = leftsessionid, Name = sessionobj.Name, BeginTime = sessionobj.BeginTime, EndTime = sessionobj.EndTime, Duration = (sessionobj.EndTime.Subtract(sessionobj.BeginTime)).Seconds });
-
-
-            cc.Write(
-                LogRecord,
-                "logrecord.csv",
-                outputFileDescription);
-
-            return 1;
-        }
+            
     }
 }
