@@ -1,5 +1,0 @@
-D:\NCSU_MCS\LKC Creative\MyDLL\mcMath\mcMath\bin\Debug\mcMath.dll
-D:\NCSU_MCS\LKC Creative\MyDLL\mcMath\mcMath\bin\Debug\mcMath.pdb
-D:\NCSU_MCS\LKC Creative\MyDLL\mcMath\mcMath\obj\Debug\mcMath.dll
-D:\NCSU_MCS\LKC Creative\MyDLL\mcMath\mcMath\obj\Debug\mcMath.pdb
-D:\NCSU_MCS\LKC Creative\MyDLL\mcMath\mcMath\bin\Debug\LINQtoCSV.dll
