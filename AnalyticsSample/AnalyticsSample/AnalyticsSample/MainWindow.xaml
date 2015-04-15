@@ -6,24 +6,33 @@
         Height="1024" 
         Width="1280" 
         Background="Black" KeyDown="baseWindow_KeyDown">
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <Button x:Name="butLeft" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="30" Click="butLeft_Click">Left Object</Button>
         <Button x:Name="butRight" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="30" Click="butRight_Click">Right Object</Button>
-        
+
         <Grid x:Name="grdLeft" Grid.Column="0" Margin="20" Background="CornflowerBlue" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">This is the content for a left-side object.</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Height="99" Margin="194,427">This is the content for a left-side object.</TextBlock>
             <Button x:Name="butLeftClose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Padding="20" Click="butLeftClose_Click">Close</Button>
+            <Button  Click="cat_Click" x:Name ="cat" HorizontalAlignment="Left" Height="100" Margin="64,568,0,0" VerticalAlignment="Top" Width="100">
+                <Image Stretch="Fill" Source ="D:\NCSU_MCS\LKC Creative\Analytics\SAMPLE IMAGES\cat.jpg"></Image>
+            </Button>
+            <Button Click="dog_Click" x:Name ="dog" HorizontalAlignment="Left" Height="100" Margin="243,568,0,0" VerticalAlignment="Top" Width="100">
+                <Image Stretch="Fill" Source ="D:\NCSU_MCS\LKC Creative\Analytics\SAMPLE IMAGES\dog.jpg"></Image>
+            </Button>
+            <Button  Click="horse_Click" x:Name ="horse" HorizontalAlignment="Left" Height="100" Margin="420,568,0,0" VerticalAlignment="Top" Width="100">
+                <Image Stretch="Fill" Source ="D:\NCSU_MCS\LKC Creative\Analytics\SAMPLE IMAGES\horse.jpg"></Image>
+            </Button>
         </Grid>
         <Grid x:Name="grdRight" Grid.Column="1" Margin="20" Background="CornflowerBlue" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">This is the content for a right-side object.</TextBlock>
             <Button x:Name="butRightClose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Padding="20" Click="butRightClose_Click">Close</Button>
         </Grid>
     </Grid>
-    
+
 </Window>

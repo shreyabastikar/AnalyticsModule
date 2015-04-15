@@ -39,14 +39,16 @@ namespace AnalyticsSample
         bool left = false;
         bool right = false;
         LogRecord obj;
-        
+        List<LogRecord> currentObjects = new List<LogRecord>();
         private void butLeft_Click(object sender, RoutedEventArgs e)
         {
             grdLeft.Visibility = Visibility.Visible;
 
             left = true;
             obj = Analytics.AnalyticsLog.PostSessionStart(butLeft.Name, "table");
-
+            currentObjects.Add(obj);
+            //List of current objects
+            //List<LogRecord> objects.add(obj)
 
             // Register a selection of this item and save a session token 
             // so that we can track duration that the left panel is open.
@@ -84,7 +86,7 @@ namespace AnalyticsSample
             
                         
             //logrecord.csv is the file passed by the host application for logging
-            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv",obj);
+            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv",currentObjects);
             grdLeft.Visibility = Visibility.Hidden;
             Console.WriteLine("***************** {0}", e.Source);
             // Pseudo code:
@@ -98,6 +100,26 @@ namespace AnalyticsSample
 
             // Pseudo code:
             //AnalyticsModule.PostSessionEnd(rightSessionID);
+        }
+        private void cat_Click(object sender, RoutedEventArgs e)
+        {
+
+            obj = Analytics.AnalyticsLog.PostSessionStart(cat.Name, "table");
+            currentObjects.Add(obj);
+        
+        }
+        private void dog_Click(object sender, RoutedEventArgs e)
+        {
+
+            obj = Analytics.AnalyticsLog.PostSessionStart(dog.Name, "table");
+            currentObjects.Add(obj);
+                
+        }
+        private void horse_Click(object sender, RoutedEventArgs e)
+        {
+            obj = Analytics.AnalyticsLog.PostSessionStart(horse.Name, "table");
+            currentObjects.Add(obj);
+        
         }
     }
 }

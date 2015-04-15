@@ -20,19 +20,19 @@ namespace Analytics
 
         }
 
-        [CsvColumn(Name = "Name", FieldIndex = 2)]
+        [CsvColumn(Name = "Name", FieldIndex = 1)]
         public string Name { get; set; }
 
-        [CsvColumn(Name = "Table", FieldIndex = 3)]
+        [CsvColumn(Name = "Table", FieldIndex = 2)]
         public string Table { get; set; }
 
-        [CsvColumn(Name = "BeginTime", FieldIndex = 4, OutputFormat = "MM/dd/yyyy HH:mm:ss")]
+        [CsvColumn(Name = "BeginTime", FieldIndex = 3, OutputFormat = "MM/dd/yyyy HH:mm:ss")]
         public DateTime BeginTime { get; set; }
 
-        [CsvColumn(Name = "EndTime", FieldIndex = 5, OutputFormat = "MM/dd/yyyy HH:mm:ss")]
+        [CsvColumn(Name = "EndTime", FieldIndex = 4, OutputFormat = "MM/dd/yyyy HH:mm:ss")]
         public DateTime EndTime { get; set; }
 
-        [CsvColumn(Name = "Duration", FieldIndex = 6)]
+        [CsvColumn(Name = "Duration", FieldIndex = 5)]
         public int Duration { get; set; }
 
         public void Complete()
@@ -40,7 +40,13 @@ namespace Analytics
             this.EndTime = DateTime.Now;
             TimeSpan ts = this.EndTime - this.BeginTime;
             this.Duration = (int)ts.TotalSeconds;
+    
+        }
+        public void CompleteCDH()
+        {
             
+            TimeSpan ts = this.EndTime - this.BeginTime;
+            this.Duration = (int)ts.TotalSeconds;
 
         }
             
