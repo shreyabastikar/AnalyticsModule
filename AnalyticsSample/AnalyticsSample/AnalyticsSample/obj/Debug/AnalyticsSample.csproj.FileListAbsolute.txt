@@ -33,3 +33,19 @@ D:\NCSU_MCS\LKC Creative\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Deb
 D:\NCSU_MCS\LKC Creative\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.pdb
 D:\NCSU_MCS\LKC Creative\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\LINQtoCSV.dll
 D:\NCSU_MCS\LKC Creative\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csprojResolveAssemblyReference.cache
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.exe.config
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.exe
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.pdb
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.exe
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.pdb
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.dll
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\LINQtoCSV.dll
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.pdb
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csprojResolveAssemblyReference.cache
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\MainWindow.baml
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\MainWindow.g.cs
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\App.g.cs
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample_MarkupCompile.cache
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.g.resources
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.Properties.Resources.resources
+C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csproj.GenerateResource.Cache

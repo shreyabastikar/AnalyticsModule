@@ -11,12 +11,16 @@ namespace mcMath
     public class LogRecord
     {
         public LogRecord() { }
-        public LogRecord(int ID, string Name, string Table) {
+   
+        public LogRecord(int ID, string Name, string Table, string BeginTime)
+        {
 
             this.ID = ID;
             this.Name = Name;
             this.Table = Table;
-        
+            this.BeginTime = BeginTime;
+            
+
         }
 
         [CsvColumn(Name = "ID", FieldIndex = 1)]
@@ -28,11 +32,11 @@ namespace mcMath
         [CsvColumn(Name = "Table", FieldIndex = 3)]
         public string Table { get; set; }
 
-        [CsvColumn(Name = "BeginTime", FieldIndex = 4, OutputFormat = "dd MMM HH:mm:ss")]
-        public DateTime BeginTime { get; set; }
+        [CsvColumn(Name = "BeginTime", FieldIndex = 4)]
+        public string BeginTime { get; set; }
 
         [CsvColumn(Name = "EndTime", FieldIndex = 5, OutputFormat = "dd MMM HH:mm:ss")]
-        public DateTime EndTime { get; set; }
+        public string EndTime { get; set; }
 
 
     }
@@ -71,11 +75,11 @@ namespace mcMath
         {
             return val1 + val2;
         }
-        public LogRecord PostSessionStart(int ID, string Name, string Table)
+        public LogRecord PostSessionStart(int ID, string Name, string Table, string BeginTime)
         {
-            
 
-            return new LogRecord(ID, Name, Table);
+
+            return new LogRecord(ID, Name, Table, BeginTime);
         }
 
         public int PostSessionEnd(LogRecord sessionobj)
@@ -96,7 +100,10 @@ namespace mcMath
 
 
             List<LogRecord> LogRecord = new List<LogRecord>();
-            LogRecord.Add(new LogRecord { ID = leftsessionid, Name = sessionobj.Name });
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            Console.WriteLine("-----------------------------------------------------");
+            LogRecord.Add(new LogRecord { ID = leftsessionid, Name = sessionobj.Name, BeginTime = sessionobj.BeginTime, EndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") });
             
 
             cc.Write(

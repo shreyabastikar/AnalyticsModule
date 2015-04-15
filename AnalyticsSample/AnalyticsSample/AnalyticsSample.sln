@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsSample", "AnalyticsSample\AnalyticsSample.csproj", "{614611BC-4C4B-4D39-BC7C-CC39DE34F90E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsLog", "..\..\MyDLL\mcMath\mcMath\AnalyticsLog.csproj", "{EF13076E-CC21-41E2-81DB-407EC2CDFFDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyticsLog", "..\..\mcMath\mcMath\AnalyticsLog.csproj", "{EF13076E-CC21-41E2-81DB-407EC2CDFFDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

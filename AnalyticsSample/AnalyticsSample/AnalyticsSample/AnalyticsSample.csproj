@@ -95,7 +95,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MyDLL\mcMath\mcMath\AnalyticsLog.csproj">
+    <ProjectReference Include="..\..\..\mcMath\mcMath\AnalyticsLog.csproj">
       <Project>{ef13076e-cc21-41e2-81db-407ec2cdffda}</Project>
       <Name>AnalyticsLog</Name>
     </ProjectReference>

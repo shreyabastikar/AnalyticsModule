@@ -47,9 +47,12 @@ namespace AnalyticsSample
 
             Console.WriteLine(lRes.ToString());
             left = true;
-            LogRecord obj = clsobj.PostSessionStart(1, butLeft.Name, "table");
+            LogRecord obj = clsobj.PostSessionStart(1, butLeft.Name, "table", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             int ret = clsobj.PostSessionEnd(obj);
-      
+
+           Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            Console.WriteLine("-----------------------------------------------------");
             // Register a selection of this item and save a session token 
             // so that we can track duration that the left panel is open.
             // Pseudo code:
@@ -78,6 +81,15 @@ namespace AnalyticsSample
             right = true;
             // Pseudo code:
             //AnalyticsModule.PostSessionEnd(leftSessionID);
+
+            /**
+            AnalyticsLog clsobj = new AnalyticsLog();
+            long lRes = clsobj.Add(23, 40);
+            clsobj.Extra = false;
+            LogRecord obj = clsobj.PostSessionStart(1, "Given Right", "table");
+            int ret = clsobj.PostSessionEnd(obj);
+
+             **/
         }
 
         int rightSessionID;
