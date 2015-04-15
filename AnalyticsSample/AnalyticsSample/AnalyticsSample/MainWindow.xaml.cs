@@ -35,24 +35,23 @@ namespace AnalyticsSample
             }
         }
 
-        int leftSessionID=0;
+        int leftSessionID = 0;
         bool left = false;
         bool right = false;
+        LogRecord obj;
+        AnalyticsLog clsobj = new AnalyticsLog();
         private void butLeft_Click(object sender, RoutedEventArgs e)
         {
             grdLeft.Visibility = Visibility.Visible;
-            AnalyticsLog clsobj = new AnalyticsLog();
+
             long lRes = clsobj.Add(23, 40);
             clsobj.Extra = false;
 
             Console.WriteLine(lRes.ToString());
             left = true;
-            LogRecord obj = clsobj.PostSessionStart(1, butLeft.Name, "table", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            int ret = clsobj.PostSessionEnd(obj);
+            obj = clsobj.PostSessionStart(1, butLeft.Name, "table", DateTime.Now);
 
-           Console.WriteLine("-----------------------------------------------------");
-            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            Console.WriteLine("-----------------------------------------------------");
+
             // Register a selection of this item and save a session token 
             // so that we can track duration that the left panel is open.
             // Pseudo code:
@@ -81,15 +80,6 @@ namespace AnalyticsSample
             right = true;
             // Pseudo code:
             //AnalyticsModule.PostSessionEnd(leftSessionID);
-
-            /**
-            AnalyticsLog clsobj = new AnalyticsLog();
-            long lRes = clsobj.Add(23, 40);
-            clsobj.Extra = false;
-            LogRecord obj = clsobj.PostSessionStart(1, "Given Right", "table");
-            int ret = clsobj.PostSessionEnd(obj);
-
-             **/
         }
 
         int rightSessionID;
@@ -101,9 +91,10 @@ namespace AnalyticsSample
 
 
             }
-            
+            obj.EndTime = DateTime.Now;
+            int ret = clsobj.PostSessionEnd(obj);
             grdLeft.Visibility = Visibility.Hidden;
-            Console.WriteLine("***************** {0}",e.Source);
+            Console.WriteLine("***************** {0}", e.Source);
             // Pseudo code:
             //rightSessionID = AnalyticsModule.PostSessionStart(butRight.Name);
         }
