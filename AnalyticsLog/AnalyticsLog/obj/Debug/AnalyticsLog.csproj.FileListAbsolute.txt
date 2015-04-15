@@ -13,8 +13,8 @@ C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsLog\AnalyticsLog\
 C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\LINQtoCSV.dll
 C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\mcMath.dll
 C:\Users\Sayali\Desktop\LKC\Analytics\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\mcMath.pdb
-D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\mcMath.dll
-D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\mcMath.pdb
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\LINQtoCSV.dll
-D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\mcMath.dll
-D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\mcMath.pdb
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\AnalyticsLog.dll
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\AnalyticsLog.pdb
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\AnalyticsLog.dll
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\AnalyticsLog.pdb

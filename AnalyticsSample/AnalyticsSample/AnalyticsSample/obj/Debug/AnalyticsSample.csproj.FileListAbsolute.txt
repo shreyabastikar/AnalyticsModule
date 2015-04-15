@@ -54,10 +54,8 @@ D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.pdb
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.exe
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsSample.pdb
-D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.dll
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mscorlib.dll
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\LINQtoCSV.dll
-D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\mcMath.pdb
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normidna.nlp
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normnfc.nlp
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\normnfd.nlp
@@ -71,3 +69,5 @@ D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.g.resources
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.Properties.Resources.resources
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\obj\Debug\AnalyticsSample.csproj.GenerateResource.Cache
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsLog.dll
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsSample\AnalyticsSample\AnalyticsSample\bin\Debug\AnalyticsLog.pdb
