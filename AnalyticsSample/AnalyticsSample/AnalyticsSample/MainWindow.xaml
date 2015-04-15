@@ -1,0 +1,29 @@
+﻿<Window x:Class="AnalyticsSample.MainWindow"
+        x:Name="baseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Analytics Sample Application" 
+        Height="1024" 
+        Width="1280" 
+        Background="Black" KeyDown="baseWindow_KeyDown">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Button x:Name="butLeft" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="30" Click="butLeft_Click">Left Object</Button>
+        <Button x:Name="butRight" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="30" Click="butRight_Click">Right Object</Button>
+        
+        <Grid x:Name="grdLeft" Grid.Column="0" Margin="20" Background="CornflowerBlue" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">This is the content for a left-side object.</TextBlock>
+            <Button x:Name="butLeftClose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Padding="20" Click="butLeftClose_Click">Close</Button>
+        </Grid>
+        <Grid x:Name="grdRight" Grid.Column="1" Margin="20" Background="CornflowerBlue" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">This is the content for a right-side object.</TextBlock>
+            <Button x:Name="butRightClose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Padding="20" Click="butRightClose_Click">Close</Button>
+        </Grid>
+    </Grid>
+    
+</Window>
