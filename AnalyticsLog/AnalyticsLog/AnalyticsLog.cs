@@ -95,10 +95,7 @@ namespace Analytics
                     Console.WriteLine("*****************************************************");
                     Console.WriteLine(w);
                     Console.WriteLine("*****************************************************");
-
-                    
-                    
-
+                 
                     w.Close();
                     tw.Close();
                 }
