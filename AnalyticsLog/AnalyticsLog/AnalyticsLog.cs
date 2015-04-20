@@ -66,11 +66,11 @@ namespace Analytics
           //  cc.Write(currentObjects, new System.IO.StreamWriter( System.Configuration.ConfigurationManager.AppSettings["OutputFile"], true))
             
             //tw.FormatProvider()
-            for (int i = 0; i < currentObjects.Count; i++) {
+           /* for (int i = 0; i < currentObjects.Count; i++) {
 
                 Console.WriteLine(currentObjects[i].Name);
             
-            }
+            }*/
                 try
                 {
 
@@ -92,9 +92,7 @@ namespace Analytics
                         currentObjects,
                         tw, outputFileDescription1);
                     }
-                    Console.WriteLine("*****************************************************");
-                    Console.WriteLine(w);
-                    Console.WriteLine("*****************************************************");
+                    
                  
                     w.Close();
                     tw.Close();
@@ -104,11 +102,109 @@ namespace Analytics
                     Console.WriteLine(e.Message);
                 }
 
-
-
             return 1;
         }
         
+        public static void MaxUsedItem()
+        {
+            CsvFileDescription inputFileDescription = new CsvFileDescription
+            {
+                SeparatorChar = ',',
+                FirstLineHasColumnNames = true
+            };
+            CsvContext cc = new CsvContext();
+            IEnumerable<LogRecord> logrecords =
+                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+            // Data is now available via variable logrecords.
+            var names =
+                (from row in logrecords
+                 group row by row.Name into g
+                 orderby g.Count() descending
+                 select g.Key).First();
+            
+                Console.WriteLine("The maximum used item on the screen is ....{0}", names);
+
+        }
+        public static void MinUsedItem()
+        {
+            CsvFileDescription inputFileDescription = new CsvFileDescription
+            {
+                SeparatorChar = ',',
+                FirstLineHasColumnNames = true
+            };
+            CsvContext cc = new CsvContext();
+            IEnumerable<LogRecord> logrecords =
+                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+            // Data is now available via variable logrecords.
+            var names =
+                (from row in logrecords
+                 where row.Name != "butLeft"
+                 group row by row.Name into g
+                 orderby g.Count() ascending
+                 select g.Key).First();
+
+            Console.WriteLine("The minimum used item on the screen is ....{0}", names);
+
+        }
+        public void AverageUsedItem(IEnumerable<LogRecord> obj)
+        {
+
+            CsvFileDescription inputFileDescription = new CsvFileDescription
+            {
+                SeparatorChar = ',',
+                FirstLineHasColumnNames = true
+            };
+            CsvContext cc = new CsvContext();
+            IEnumerable<LogRecord> logrecords =
+                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+            // Data is now available via variable logrecords.
+            /*var names =
+                (from row in logrecords
+                 where row.Name != "butLeft"
+                 group row by row.Name into g
+                 orderby g.Count() ascending
+                 select g.Key).First();
+            */
+           // Console.WriteLine("The minimum used item on the screen is ....{0}", names);
+        }
         
+        public static void BounceRate()
+        {
+
+            CsvFileDescription inputFileDescription = new CsvFileDescription
+            {
+                SeparatorChar = ',',
+                FirstLineHasColumnNames = true
+            };
+            CsvContext cc = new CsvContext();
+            IEnumerable<LogRecord> logrecords =
+                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+            // Data is now available via variable logrecords.
+            var total_journeys =
+                (from row in logrecords
+                 where row.Journey == "START"
+                 select row.Name
+                 ).Count();
+            var incomplete_journeys =
+                (from row in logrecords
+                 where row.Bounce == 1
+                 select row.Name
+                 ).Count();
+            var last_used =
+                (from row in logrecords
+                 where row.Bounce == 1
+                 group row by row.Name into g
+                 orderby g.Count() descending
+                 select g.Key).LastOrDefault();
+            if (last_used == null)
+                last_used = "not enough records";
+            Console.WriteLine("The Number of journeys ....{0}", total_journeys);
+            Console.WriteLine("The Number of INCOMPLETE journeys ....{0}", incomplete_journeys);
+            Console.WriteLine("Bounce rate is ....{0}%", ((double)incomplete_journeys/(double)total_journeys)*100.0);
+            Console.WriteLine("Last used item ..... {0}",last_used);
+
+
+
+        }
     }
 }

@@ -18,3 +18,4 @@ D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\Ana
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\bin\Debug\LINQtoCSV.dll
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\AnalyticsLog.dll
 D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\AnalyticsLog.pdb
+D:\NCSU_MCS\LKC Creative\Github_AnalyticsSample\AnalyticsModule\AnalyticsLog\AnalyticsLog\obj\Debug\AnalyticsLog.csprojResolveAssemblyReference.cache

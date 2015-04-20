@@ -13,8 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Analytics;
+using System.Threading;
+
+
 namespace AnalyticsSample
 {
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -40,13 +45,29 @@ namespace AnalyticsSample
         bool right = false;
         LogRecord obj;
         List<LogRecord> currentObjects = new List<LogRecord>();
+        System.Timers.Timer timer = null;
+        static bool timer1 = false;
+        InactivityTimer iobj;
+          
+
+        public void CheckStatus(Object stateInfo)
+        {
+            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv", currentObjects);
+            //Console.WriteLine("***************** {0}", e.Source);
+            Analytics.AnalyticsLog.MaxUsedItem();
+            Analytics.AnalyticsLog.MinUsedItem();
+        }
         private void butLeft_Click(object sender, RoutedEventArgs e)
         {
-            grdLeft.Visibility = Visibility.Visible;
 
+            grdLeft.Visibility = Visibility.Visible;
             left = true;
             obj = Analytics.AnalyticsLog.PostSessionStart(butLeft.Name, "table");
+            obj.Journey = "START";
             currentObjects.Add(obj);
+            iobj.Enabled = true;
+           
+            
             //List of current objects
             //List<LogRecord> objects.add(obj)
 
@@ -83,12 +104,15 @@ namespace AnalyticsSample
         int rightSessionID;
         private void butLeftClose_Click(object sender, RoutedEventArgs e)
         {
-            
-                        
+
+            currentObjects[currentObjects.Count - 1].Journey = "END";
             //logrecord.csv is the file passed by the host application for logging
             int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv",currentObjects);
             grdLeft.Visibility = Visibility.Hidden;
-            Console.WriteLine("***************** {0}", e.Source);
+            //Console.WriteLine("***************** {0}", e.Source);
+            Analytics.AnalyticsLog.MaxUsedItem();
+            Analytics.AnalyticsLog.MinUsedItem();
+            Analytics.AnalyticsLog.BounceRate();
             // Pseudo code:
             //rightSessionID = AnalyticsModule.PostSessionStart(butRight.Name);
         }
@@ -121,5 +145,35 @@ namespace AnalyticsSample
             currentObjects.Add(obj);
         
         }
+
+        private void baseWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            iobj = new InactivityTimer(TimeSpan.FromSeconds(6));
+            iobj.Inactivity+=iobj_Inactivity;
+            iobj.Enabled = true;
+
+        }
+
+        private void iobj_Inactivity(object sender, EventArgs e)
+        {
+            currentObjects[currentObjects.Count - 1].Bounce = 1;
+            currentObjects[currentObjects.Count - 1].Journey = "END";
+            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv", currentObjects);
+            grdLeft.Visibility = Visibility.Hidden;
+            //Console.WriteLine("***************** {0}", e.Source);
+            Analytics.AnalyticsLog.MaxUsedItem();
+            Analytics.AnalyticsLog.MinUsedItem();
+            Analytics.AnalyticsLog.BounceRate();
+        }
+
+        private void baseWindow_Unloaded(object sender, RoutedEventArgs e)
+        {
+            iobj.Inactivity -= iobj_Inactivity;
+            iobj.Dispose();
+            iobj = null;
+        }
     }
+
+    
+
 }

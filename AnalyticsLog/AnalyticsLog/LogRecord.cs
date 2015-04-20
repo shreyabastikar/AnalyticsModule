@@ -17,6 +17,8 @@ namespace Analytics
             this.Name = Name;
             this.Table = Table;
             this.BeginTime = DateTime.Now;
+            this.Bounce = 0;
+
 
         }
 
@@ -34,6 +36,12 @@ namespace Analytics
 
         [CsvColumn(Name = "Duration", FieldIndex = 5)]
         public int Duration { get; set; }
+
+        [CsvColumn(Name = "Bounce", FieldIndex = 6)]
+        public int Bounce { get; set; }
+
+        [CsvColumn(Name = "Journey", FieldIndex = 7)]
+        public string Journey { get; set; }
 
         public void Complete()
         {

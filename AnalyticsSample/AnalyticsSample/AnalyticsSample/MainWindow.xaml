@@ -5,7 +5,7 @@
         Title="Analytics Sample Application" 
         Height="1024" 
         Width="1280" 
-        Background="Black" KeyDown="baseWindow_KeyDown">
+        Background="Black" KeyDown="baseWindow_KeyDown" Loaded="baseWindow_Loaded" Unloaded="baseWindow_Unloaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
