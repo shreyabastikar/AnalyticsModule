@@ -48,15 +48,7 @@ namespace AnalyticsSample
         System.Timers.Timer timer = null;
         static bool timer1 = false;
         InactivityTimer iobj;
-          
-
-        public void CheckStatus(Object stateInfo)
-        {
-            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv", currentObjects);
-            //Console.WriteLine("***************** {0}", e.Source);
-            Analytics.AnalyticsLog.MaxUsedItem();
-            Analytics.AnalyticsLog.MinUsedItem();
-        }
+        
         private void butLeft_Click(object sender, RoutedEventArgs e)
         {
 
@@ -104,12 +96,11 @@ namespace AnalyticsSample
         int rightSessionID;
         private void butLeftClose_Click(object sender, RoutedEventArgs e)
         {
-
+            
             currentObjects[currentObjects.Count - 1].Journey = "END";
             //logrecord.csv is the file passed by the host application for logging
             int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv",currentObjects);
             grdLeft.Visibility = Visibility.Hidden;
-            //Console.WriteLine("***************** {0}", e.Source);
             Analytics.AnalyticsLog.MaxUsedItem();
             Analytics.AnalyticsLog.MinUsedItem();
             Analytics.AnalyticsLog.BounceRate();
@@ -127,20 +118,24 @@ namespace AnalyticsSample
         }
         private void cat_Click(object sender, RoutedEventArgs e)
         {
-
+            //registers end time of the previous clicked object. 
+            currentObjects[currentObjects.Count - 1].Complete();
+            //creates and returns object of the current clicked object
             obj = Analytics.AnalyticsLog.PostSessionStart(cat.Name, "table");
+            //adds the created object to the list
             currentObjects.Add(obj);
         
         }
         private void dog_Click(object sender, RoutedEventArgs e)
         {
-
+            currentObjects[currentObjects.Count - 1].Complete();
             obj = Analytics.AnalyticsLog.PostSessionStart(dog.Name, "table");
             currentObjects.Add(obj);
                 
         }
         private void horse_Click(object sender, RoutedEventArgs e)
         {
+            currentObjects[currentObjects.Count - 1].Complete();
             obj = Analytics.AnalyticsLog.PostSessionStart(horse.Name, "table");
             currentObjects.Add(obj);
         
@@ -148,7 +143,7 @@ namespace AnalyticsSample
 
         private void baseWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            iobj = new InactivityTimer(TimeSpan.FromSeconds(6));
+            iobj = new InactivityTimer(TimeSpan.FromSeconds(60));
             iobj.Inactivity+=iobj_Inactivity;
             iobj.Enabled = true;
 
@@ -160,7 +155,6 @@ namespace AnalyticsSample
             currentObjects[currentObjects.Count - 1].Journey = "END";
             int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv", currentObjects);
             grdLeft.Visibility = Visibility.Hidden;
-            //Console.WriteLine("***************** {0}", e.Source);
             Analytics.AnalyticsLog.MaxUsedItem();
             Analytics.AnalyticsLog.MinUsedItem();
             Analytics.AnalyticsLog.BounceRate();
@@ -174,6 +168,5 @@ namespace AnalyticsSample
         }
     }
 
-    
 
 }

@@ -37,9 +37,13 @@ namespace Analytics
         [CsvColumn(Name = "Duration", FieldIndex = 5)]
         public int Duration { get; set; }
 
+        /*0 if close button is used intentionally, 1 if the user walks away from the screen
+        without ending the session*/
         [CsvColumn(Name = "Bounce", FieldIndex = 6)]
         public int Bounce { get; set; }
 
+        /*Journey has two string values, START to marks the beginning of the journey and END
+         to mark the end of the journey - complete or incomplete */
         [CsvColumn(Name = "Journey", FieldIndex = 7)]
         public string Journey { get; set; }
 
@@ -50,13 +54,6 @@ namespace Analytics
             this.Duration = (int)ts.TotalSeconds;
     
         }
-        public void CompleteCDH()
-        {
-            
-            TimeSpan ts = this.EndTime - this.BeginTime;
-            this.Duration = (int)ts.TotalSeconds;
-
-        }
-            
+                   
     }
 }

@@ -27,6 +27,9 @@ namespace Analytics
                 AnalyticsLog.OutputFileName = "logrecord.csv";
             }
             CsvContext cc = new CsvContext();
+
+            /*This description is for the first entry into the CSV file. First entry
+            requires column names, thus FirstLineHasColumnNames = true*/
             CsvFileDescription outputFileDescription = new CsvFileDescription
             {
                 
@@ -34,6 +37,8 @@ namespace Analytics
                 FirstLineHasColumnNames = true,
 
             };
+            /*This description is for the appending into the existing CSV file. First entry
+            does not require column names, thus FirstLineHasColumnNames = false*/
             CsvFileDescription outputFileDescription1 = new CsvFileDescription
             {
 
@@ -43,34 +48,10 @@ namespace Analytics
 
             };
             List<LogRecord> LogRecord = new List<LogRecord>();
-           // LogRecord obj = new LogRecord { Name = sessionobj.Name, BeginTime = sessionobj.BeginTime, EndTime = sessionobj.EndTime};
-            for (int i = 0; i < currentObjects.Count-1; i++)
-            {
-                currentObjects[i].EndTime = currentObjects[i + 1].BeginTime;
-                currentObjects[i].CompleteCDH();
-                
-            }
-
+         
+            /*When the final object is clicked and the session is ended by the user (or by
+             inactivity, this registers end time of the object last clicked*/
             currentObjects[currentObjects.Count-1].Complete();
-            
-          /*  cc.Write(
-                currentObjects,
-                OutputFileName,
-                outputFileDescription);
-            */
-          //  using (TextWriter writer = new StreamWriter( ConfigurationManager.AppSettings["OutputFile"], true))
-            /*{
-                var context = new CsvContext();
-                context.Write(cardholders, writer, outputDescription);
-            } */
-          //  cc.Write(currentObjects, new System.IO.StreamWriter( System.Configuration.ConfigurationManager.AppSettings["OutputFile"], true))
-            
-            //tw.FormatProvider()
-           /* for (int i = 0; i < currentObjects.Count; i++) {
-
-                Console.WriteLine(currentObjects[i].Name);
-            
-            }*/
                 try
                 {
 
@@ -116,11 +97,13 @@ namespace Analytics
             IEnumerable<LogRecord> logrecords =
                 cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
             // Data is now available via variable logrecords.
+            //This query calculates the MAX frequent item
             var names =
                 (from row in logrecords
+                 where row.Name != "butLeft"
                  group row by row.Name into g
                  orderby g.Count() descending
-                 select g.Key).First();
+                 select g.Key).FirstOrDefault();
             
                 Console.WriteLine("The maximum used item on the screen is ....{0}", names);
 
@@ -136,6 +119,7 @@ namespace Analytics
             IEnumerable<LogRecord> logrecords =
                 cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
             // Data is now available via variable logrecords.
+            //This query calculates the MIN frequent item
             var names =
                 (from row in logrecords
                  where row.Name != "butLeft"
@@ -146,28 +130,7 @@ namespace Analytics
             Console.WriteLine("The minimum used item on the screen is ....{0}", names);
 
         }
-        public void AverageUsedItem(IEnumerable<LogRecord> obj)
-        {
-
-            CsvFileDescription inputFileDescription = new CsvFileDescription
-            {
-                SeparatorChar = ',',
-                FirstLineHasColumnNames = true
-            };
-            CsvContext cc = new CsvContext();
-            IEnumerable<LogRecord> logrecords =
-                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
-            // Data is now available via variable logrecords.
-            /*var names =
-                (from row in logrecords
-                 where row.Name != "butLeft"
-                 group row by row.Name into g
-                 orderby g.Count() ascending
-                 select g.Key).First();
-            */
-           // Console.WriteLine("The minimum used item on the screen is ....{0}", names);
-        }
-        
+                
         public static void BounceRate()
         {
 
@@ -195,7 +158,7 @@ namespace Analytics
                  where row.Bounce == 1
                  group row by row.Name into g
                  orderby g.Count() descending
-                 select g.Key).LastOrDefault();
+                 select g.Key).FirstOrDefault();
             if (last_used == null)
                 last_used = "not enough records";
             Console.WriteLine("The Number of journeys ....{0}", total_journeys);
