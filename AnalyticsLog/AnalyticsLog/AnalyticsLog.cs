@@ -20,7 +20,7 @@ namespace Analytics
             return new LogRecord(Name, Table);
         }
 
-        public static int PostSessionEnd(string OutputFileName, List<LogRecord> currentObjects)
+        public static int PostSessionEnd(List<LogRecord> currentObjects)
         {
             if (OutputFileName == null) 
             {
@@ -57,9 +57,9 @@ namespace Analytics
 
                     System.IO.StreamWriter w = null;
                     System.IO.TextWriter tw = null;
-                    if (!System.IO.File.Exists("logrecord.csv"))
+                    if (!System.IO.File.Exists(OutputFileName))
                     {
-                        w = new System.IO.StreamWriter("logrecord.csv", true);
+                        w = new System.IO.StreamWriter(OutputFileName, true);
                         tw = w;
                         cc.Write(
                         currentObjects,
@@ -67,7 +67,7 @@ namespace Analytics
                     }
                     else
                     {
-                        w = new System.IO.StreamWriter("logrecord.csv", true);
+                        w = new System.IO.StreamWriter(OutputFileName, true);
                         tw = w;
                         cc.Write(
                         currentObjects,
@@ -77,6 +77,7 @@ namespace Analytics
                  
                     w.Close();
                     tw.Close();
+                    currentObjects.Clear();
                 }
                 catch (Exception e)
                 {
@@ -95,7 +96,7 @@ namespace Analytics
             };
             CsvContext cc = new CsvContext();
             IEnumerable<LogRecord> logrecords =
-                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+                cc.Read<LogRecord>(OutputFileName, inputFileDescription);
             // Data is now available via variable logrecords.
             //This query calculates the MAX frequent item
             var names =
@@ -117,7 +118,7 @@ namespace Analytics
             };
             CsvContext cc = new CsvContext();
             IEnumerable<LogRecord> logrecords =
-                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+                cc.Read<LogRecord>(OutputFileName, inputFileDescription);
             // Data is now available via variable logrecords.
             //This query calculates the MIN frequent item
             var names =
@@ -141,7 +142,7 @@ namespace Analytics
             };
             CsvContext cc = new CsvContext();
             IEnumerable<LogRecord> logrecords =
-                cc.Read<LogRecord>("logrecord.csv", inputFileDescription);
+                cc.Read<LogRecord>(OutputFileName, inputFileDescription);
             // Data is now available via variable logrecords.
             var total_journeys =
                 (from row in logrecords

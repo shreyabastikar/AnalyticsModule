@@ -99,7 +99,7 @@ namespace AnalyticsSample
             
             currentObjects[currentObjects.Count - 1].Journey = "END";
             //logrecord.csv is the file passed by the host application for logging
-            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv",currentObjects);
+            int ret = Analytics.AnalyticsLog.PostSessionEnd(currentObjects);
             grdLeft.Visibility = Visibility.Hidden;
             Analytics.AnalyticsLog.MaxUsedItem();
             Analytics.AnalyticsLog.MinUsedItem();
@@ -153,7 +153,7 @@ namespace AnalyticsSample
         {
             currentObjects[currentObjects.Count - 1].Bounce = 1;
             currentObjects[currentObjects.Count - 1].Journey = "END";
-            int ret = Analytics.AnalyticsLog.PostSessionEnd("logrecord.csv", currentObjects);
+            int ret = Analytics.AnalyticsLog.PostSessionEnd(currentObjects);
             grdLeft.Visibility = Visibility.Hidden;
             Analytics.AnalyticsLog.MaxUsedItem();
             Analytics.AnalyticsLog.MinUsedItem();
