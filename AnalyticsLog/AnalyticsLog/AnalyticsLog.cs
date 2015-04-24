@@ -9,18 +9,28 @@ using LINQtoCSV;
 namespace Analytics
 {
     
-
     public class AnalyticsLog
     {
         public static string OutputFileName;
-
+        public static List<LogRecord> currentObjects = new List<LogRecord>();
         public static LogRecord PostSessionStart(string Name, string Table)
         {
+            //registers end time of the previous clicked object. 
+            if(currentObjects.Count>0)
+                currentObjects[currentObjects.Count - 1].Complete();
 
-            return new LogRecord(Name, Table);
+            LogRecord obj = new LogRecord(Name, Table);
+            
+            //if it is the first item on the screen
+            if(currentObjects.Count==0)
+                obj.Journey = "START";
+            
+            //adds the created object to the list
+            currentObjects.Add(obj);
+            return obj;
         }
 
-        public static int PostSessionEnd(List<LogRecord> currentObjects)
+        public static void PostSessionEnd(bool TimedOut)
         {
             if (OutputFileName == null) 
             {
@@ -51,6 +61,8 @@ namespace Analytics
          
             /*When the final object is clicked and the session is ended by the user (or by
              inactivity, this registers end time of the object last clicked*/
+            currentObjects[currentObjects.Count - 1].TimedOut = TimedOut;
+            currentObjects[currentObjects.Count - 1].Journey = "END";
             currentObjects[currentObjects.Count-1].Complete();
                 try
                 {
@@ -84,10 +96,10 @@ namespace Analytics
                     Console.WriteLine(e.Message);
                 }
 
-            return 1;
+            
         }
         
-        public static void MaxUsedItem()
+        public static string MaxUsedItem()
         {
             CsvFileDescription inputFileDescription = new CsvFileDescription
             {
@@ -99,17 +111,17 @@ namespace Analytics
                 cc.Read<LogRecord>(OutputFileName, inputFileDescription);
             // Data is now available via variable logrecords.
             //This query calculates the MAX frequent item
-            var names =
+            var maxUsedItemName =
                 (from row in logrecords
                  where row.Name != "butLeft"
                  group row by row.Name into g
                  orderby g.Count() descending
                  select g.Key).FirstOrDefault();
-            
-                Console.WriteLine("The maximum used item on the screen is ....{0}", names);
 
+            Console.WriteLine("The maximum used item on the screen is ....{0}", maxUsedItemName);
+            return maxUsedItemName;
         }
-        public static void MinUsedItem()
+        public static string MinUsedItem()
         {
             CsvFileDescription inputFileDescription = new CsvFileDescription
             {
@@ -121,18 +133,18 @@ namespace Analytics
                 cc.Read<LogRecord>(OutputFileName, inputFileDescription);
             // Data is now available via variable logrecords.
             //This query calculates the MIN frequent item
-            var names =
+            var minUsedItemName =
                 (from row in logrecords
                  where row.Name != "butLeft"
                  group row by row.Name into g
                  orderby g.Count() ascending
                  select g.Key).First();
 
-            Console.WriteLine("The minimum used item on the screen is ....{0}", names);
-
+            Console.WriteLine("The minimum used item on the screen is ....{0}", minUsedItemName);
+            return minUsedItemName;
         }
                 
-        public static void BounceRate()
+        public static double BounceRate()
         {
 
             CsvFileDescription inputFileDescription = new CsvFileDescription
@@ -151,23 +163,23 @@ namespace Analytics
                  ).Count();
             var incomplete_journeys =
                 (from row in logrecords
-                 where row.Bounce == 1
+                 where row.TimedOut == true
                  select row.Name
                  ).Count();
             var last_used =
                 (from row in logrecords
-                 where row.Bounce == 1
+                 where row.TimedOut == true
                  group row by row.Name into g
                  orderby g.Count() descending
                  select g.Key).FirstOrDefault();
             if (last_used == null)
                 last_used = "not enough records";
+            double bounceRate = ((double)incomplete_journeys / (double)total_journeys) * 100.0;
             Console.WriteLine("The Number of journeys ....{0}", total_journeys);
             Console.WriteLine("The Number of INCOMPLETE journeys ....{0}", incomplete_journeys);
-            Console.WriteLine("Bounce rate is ....{0}%", ((double)incomplete_journeys/(double)total_journeys)*100.0);
+            Console.WriteLine("Bounce rate is ....{0}%", bounceRate);
             Console.WriteLine("Last used item ..... {0}",last_used);
-
-
+            return bounceRate;
 
         }
     }

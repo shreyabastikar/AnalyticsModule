@@ -18,14 +18,14 @@
 
         <Grid x:Name="grdLeft" Grid.Column="0" Margin="20" Background="CornflowerBlue" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Height="99" Margin="194,427">This is the content for a left-side object.</TextBlock>
-            <Button x:Name="butLeftClose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Padding="20" Click="butLeftClose_Click">Close</Button>
-            <Button  Click="cat_Click" x:Name ="cat" HorizontalAlignment="Left" Height="100" Margin="64,568,0,0" VerticalAlignment="Top" Width="100">
+            <Button x:Name="butLeftClose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="262,0,262,14" Padding="20" Click="butLeftClose_Click">Close</Button>
+            <Button  Click="cat_Click" x:Name ="cat" HorizontalAlignment="Left" Height="100" Margin="64,443,0,0" VerticalAlignment="Top" Width="100">
                 <Image Stretch="Fill" Source ="D:\NCSU_MCS\LKC Creative\Analytics\SAMPLE IMAGES\cat.jpg"></Image>
             </Button>
-            <Button Click="dog_Click" x:Name ="dog" HorizontalAlignment="Left" Height="100" Margin="243,568,0,0" VerticalAlignment="Top" Width="100">
+            <Button Click="dog_Click" x:Name ="dog" HorizontalAlignment="Left" Height="100" Margin="243,444,0,0" VerticalAlignment="Top" Width="100">
                 <Image Stretch="Fill" Source ="D:\NCSU_MCS\LKC Creative\Analytics\SAMPLE IMAGES\dog.jpg"></Image>
             </Button>
-            <Button  Click="horse_Click" x:Name ="horse" HorizontalAlignment="Left" Height="100" Margin="420,568,0,0" VerticalAlignment="Top" Width="100">
+            <Button  Click="horse_Click" x:Name ="horse" HorizontalAlignment="Left" Height="100" Margin="420,444,0,0" VerticalAlignment="Top" Width="100">
                 <Image Stretch="Fill" Source ="D:\NCSU_MCS\LKC Creative\Analytics\SAMPLE IMAGES\horse.jpg"></Image>
             </Button>
         </Grid>

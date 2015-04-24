@@ -17,8 +17,7 @@ namespace Analytics
             this.Name = Name;
             this.Table = Table;
             this.BeginTime = DateTime.Now;
-            this.Bounce = 0;
-
+            this.TimedOut = false;
 
         }
 
@@ -40,7 +39,7 @@ namespace Analytics
         /*0 if close button is used intentionally, 1 if the user walks away from the screen
         without ending the session*/
         [CsvColumn(Name = "Bounce", FieldIndex = 6)]
-        public int Bounce { get; set; }
+        public bool TimedOut { get; set; }
 
         /*Journey has two string values, START to marks the beginning of the journey and END
          to mark the end of the journey - complete or incomplete */
